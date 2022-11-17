@@ -7,8 +7,6 @@ const Messages = () => {
         return <div>Loading Messages</div>
     }
 
-    
-
     return (
         <div>
             <div className="flex flex-col gap-4 py-4 ">

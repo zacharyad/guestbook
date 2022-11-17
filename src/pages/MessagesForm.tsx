@@ -1,13 +1,12 @@
 import {useState} from "react"
 import {trpc} from "../utils/trpc"
 import { useSession } from "next-auth/react";
-import { waitUntilSymbol } from "next/dist/server/web/spec-extension/fetch-event";
-import { util } from "zod/lib/helpers/util";
 
 const MessagesForm = () => {
     const [isAddingMessage, setAddingMessage] = useState(false)
     const [message, setMessage] = useState("");
-    const {data: session, status} = useSession()
+    const {data: session} = useSession()
+    
     const utils = trpc.useContext()
     const postMessage = trpc.guestbook.postMessage.useMutation({
         onMutate: () => {
